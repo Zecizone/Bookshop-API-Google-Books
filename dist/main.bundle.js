@@ -207,10 +207,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/html-loader/dist/runtime/getUrl.js */ "./node_modules/html-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___HTML_LOADER_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./img/image1.jpg */ "./src/img/image1.jpg"), __webpack_require__.b);
 // Module
-var code = "<!DOCTYPE html>\r\n<html lang=\"ru\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>BookShop</title>\r\n</head>\r\n<body>\r\n    <p>Hello, Eva</p>\r\n    <p>Kill me, plese</p>\r\n    <div class=\"image123\"></div>\r\n</body>\r\n</html>";
+var ___HTML_LOADER_REPLACEMENT_0___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_0___);
+var code = "<!DOCTYPE html>\r\n<html lang=\"ru\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>BookShop</title>\r\n</head>\r\n<body>   \r\n    <div class=\"header\">\r\n        <div class=\"menu\">\r\n            <div class=\"container\">\r\n                <div class=\"menu__inner\">\r\n                    <div class=\"logo\">\r\n                        <img width=\"100px\" src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\">\r\n                    </div>\r\n                    <ul class=\"nav\">\r\n                        <li><a href=\"/\">books</a></li>\r\n                        <li><a href=\"/audiobooks\">audiobooks</a></li>\r\n                        <li><a href=\"/stationery&gifts\">stationery & gifts</a></li>\r\n                        <li><a href=\"/blog\">blog</a></li>\r\n                    </ul>\r\n                </div> \r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"app\"></div>\r\n</body>\r\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
+
+/***/ }),
+
+/***/ "./node_modules/html-loader/dist/runtime/getUrl.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/html-loader/dist/runtime/getUrl.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  }
+
+  if (!url) {
+    return url;
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = String(url.__esModule ? url.default : url);
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  }
+
+  if (options.maybeNeedQuotes && /[\t\n\f\r "'=<>`]/.test(url)) {
+    return "\"".concat(url, "\"");
+  }
+
+  return url;
+};
 
 /***/ }),
 
@@ -599,18 +640,6 @@ module.exports = __webpack_require__.p + "assets/b9bb714e26d31d022176.jpg";
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -629,25 +658,7 @@ module.exports = __webpack_require__.p + "assets/b9bb714e26d31d022176.jpg";
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 		__webpack_require__.p = "/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
@@ -691,14 +702,40 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ "./src/index.html");
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.scss */ "./src/index.scss");
-/* harmony import */ var _img_image1_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./img/image1.jpg */ "./src/img/image1.jpg");
 
 
+const appElem = document.querySelector('.app');
 
-const mult = (a, b) => a * b;
-console.log(mult(3, 4));
+// Индикатор загрузки
+const loadingIndicator = document.createElement('div');
+loadingIndicator.textContent = 'Загрузка...';
+const loadRoute = path => {
+  appElem.appendChild(loadingIndicator);
+  fetch(`./components/${path}.html`).then(response => response.text()).then(html => {
+    appElem.innerHTML = html;
+    appElem.removeChild(loadingIndicator);
+  }).catch(error => {
+    console.error(`Error loading route: ${path}`, error);
+  });
+};
+document.addEventListener('click', e => {
+  if (e.target.tagName === 'A') {
+    e.preventDefault();
+    const path = e.target.getAttribute('href');
+    window.history.pushState({}, '', path);
+    loadRoute(path);
+  }
+});
+const handleLocation = () => {
+  const path = window.location.pathname;
+  loadRoute(path);
+};
+window.onpopstate = handleLocation;
+handleLocation();
+window.onpopstate = handleLocation;
+handleLocation();
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=main.5951a9a30ebfd9077565.js.map
+//# sourceMappingURL=main.bundle.js.map
