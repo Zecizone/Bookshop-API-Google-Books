@@ -16,27 +16,150 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
-
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! img/image1.jpg */ "./src/img/image1.jpg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
-  background-color: rgb(120, 99, 79);
-  color: rgb(55, 51, 49);
+___CSS_LOADER_EXPORT___.push([module.id, `html {
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.image123 {
-  width: 300px;
-  height: 500px;
-  background-size: cover;
-  background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
-}`, "",{"version":3,"sources":["webpack://./src/style/_style.scss","webpack://./src/style/_var.scss","webpack://./src/index.scss"],"names":[],"mappings":"AAAA;EACI,kCCDG;EDEH,sBCDG;ACEP;;AFEA;EACI,YAAA;EACA,aAAA;EACA,sBAAA;EACA,yDAAA;AECJ","sourcesContent":["body {\r\n    background-color: $back;\r\n    color: $text;\r\n}\r\n\r\n.image123 {\r\n    width: 300px;\r\n    height: 500px;\r\n    background-size: cover;\r\n    background-image: url(img/image1.jpg);\r\n}\r\n","$back: rgb(120, 99, 79);\r\n$text: rgb(55, 51, 49);","body {\n  background-color: rgb(120, 99, 79);\n  color: rgb(55, 51, 49);\n}\n\n.image123 {\n  width: 300px;\n  height: 500px;\n  background-size: cover;\n  background-image: url(img/image1.jpg);\n}"],"sourceRoot":""}]);
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 100%;
+}
+
+.container {
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+  color: #5C6A79;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.menu__inner {
+  display: flex;
+  justify-content: space-between;
+  height: 116px;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  gap: 40px;
+  height: 17px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin: 0 30px;
+}
+
+.controller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 17px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: rgb(239, 238, 246);
+}
+
+.dot:hover,
+.active-dot {
+  background: #9E98DC;
+}
+
+.slider {
+  width: 1120px;
+  height: 702px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0px 6px 59px rgba(53, 49, 84, 0.08);
+  background-color: rgba(53, 49, 84, 0.045);
+}
+
+.slide1,
+.slide2,
+.slide3 {
+  width: 100%;
+  height: 702px;
+  position: absolute;
+  top: 0;
+  left: -1120px;
+  transition: left 0.5s ease-in-out;
+  display: flex;
+}
+
+.slide1.active,
+.slide2.active,
+.slide3.active {
+  left: 0;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1;
+}`, "",{"version":3,"sources":["webpack://./src/style/_style.scss","webpack://./src/index.scss","webpack://./src/style/_var.scss","webpack://./src/style/_nullstyle.scss"],"names":[],"mappings":"AAAA;EACC,YAAA;EACA,sBAAA;EACA,WAAA;ACCD;;ADEA;EACC,qCAAA;EACA,eAAA;EACA,gBAAA;EACA,YAAA;ACCD;;ADEA;EACC,iBAAA;EACA,cAAA;EACA,eAAA;EACA,YAAA;ACCD;;ADEA;EACI,aAAA;EACA,SAAA;EACA,cEvBQ;EFwBR,eAAA;EACA,kBAAA;EACA,gBAAA;EACA,mBAAA;EACA,yBAAA;ACCJ;;ADEA;EACI,aAAA;EACA,8BAAA;EACA,aAAA;EACA,mBAAA;ACCJ;;ADEA;EACI,aAAA;EACA,SAAA;EACA,YAAA;ACCJ;;ADEA;EACI,aAAA;EACA,uBAAA;EACA,cAAA;ACCJ;;ADEA;EACI,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,gBAAA;ACCJ;;ADEA;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,qBAAA;EACA,eAAA;EACA,kBAAA;EACA,oCAAA;ACCJ;;ADEA;;EAEI,mBAAA;ACCJ;;ADEA;EACI,aAAA;EACA,aAAA;EACA,kBAAA;EACA,gBAAA;EACA,cAAA;EACA,+CAAA;EACA,yCAAA;ACCJ;;ADEA;;;EAGI,WAAA;EACA,aAAA;EACA,kBAAA;EACA,MAAA;EACA,aAAA;EACA,iCAAA;EACA,aAAA;ACCJ;;ADEA;;;EAGI,OAAA;ACCJ;;AElGA;;;EAGC,UAAA;EACA,SAAA;EACA,SAAA;EACA,sBAAA;AFqGD;;AElGA;EACC,6BAAA;EAAA,qBAAA;AFqGD;;AElGA;;;EAGC,gBAAA;AFqGD;;AElGA;EACC,oBAAA;AFqGD;;AElGA;;;;;;EAMC,oBAAA;EACA,kBAAA;AFqGD;;AElGA;;EAEC,YAAA;EACA,cAAA;AFqGD","sourcesContent":["html {\r\n\theight: 100%;\r\n\tbox-sizing: border-box;\r\n\twidth: 100%;\r\n}\r\n\r\nbody {\r\n\tfont-family: 'Montserrat', sans-serif;\r\n\tfont-size: 14px;\r\n\tfont-weight: 400;\r\n\theight: 100%;\r\n}\r\n\r\n.container {\r\n\tmax-width: 1130px;\r\n\tmargin: 0 auto;\r\n\tpadding: 0 10px;\r\n\theight: 100%;\r\n}\r\n\r\n.nav {\r\n    display: flex;\r\n    gap: 40px;\r\n    color: $text-gray;\r\n    font-size: 10px;\r\n    font-style: normal;\r\n    font-weight: 700;\r\n    line-height: normal;\r\n    text-transform: uppercase;\r\n}\r\n\r\n.menu__inner {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    height: 116px;\r\n    align-items: center;\r\n}\r\n\r\n.icon {\r\n    display: flex;\r\n    gap: 40px;\r\n    height: 17px;\r\n}\r\n\r\n.dots {\r\n    display: flex;\r\n    justify-content: center;\r\n    margin: 0 30px;\r\n}\r\n\r\n.controller {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-top: 17px;\r\n}\r\n\r\n.dot {\r\n    width: 10px;\r\n    height: 10px;\r\n    margin: 0 5px;\r\n    display: inline-block;\r\n    cursor: pointer;\r\n    border-radius: 50%;\r\n    background-color: rgba(239, 238, 246, 1);\r\n}\r\n\r\n.dot:hover,\r\n.active-dot {\r\n    background: #9E98DC;\r\n}\r\n\r\n.slider {\r\n    width: 1120px;\r\n    height: 702px;\r\n    position: relative;\r\n    overflow: hidden;\r\n    margin: 0 auto;\r\n    box-shadow: (0px 6px 59px rgba(53, 49, 84, 0.08));\r\n    background-color: rgba(53, 49, 84, 0.045);\r\n}\r\n\r\n.slide1,\r\n.slide2,\r\n.slide3 {\r\n    width: 100%;\r\n    height: 702px;\r\n    position: absolute;\r\n    top: 0;\r\n    left: -1120px;\r\n    transition: left 0.5s ease-in-out;\r\n    display: flex;\r\n}\r\n     \r\n.slide1.active,\r\n.slide2.active,\r\n.slide3.active {\r\n    left: 0;\r\n}\r\n    ","html {\n  height: 100%;\n  box-sizing: border-box;\n  width: 100%;\n}\n\nbody {\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 14px;\n  font-weight: 400;\n  height: 100%;\n}\n\n.container {\n  max-width: 1130px;\n  margin: 0 auto;\n  padding: 0 10px;\n  height: 100%;\n}\n\n.nav {\n  display: flex;\n  gap: 40px;\n  color: #5C6A79;\n  font-size: 10px;\n  font-style: normal;\n  font-weight: 700;\n  line-height: normal;\n  text-transform: uppercase;\n}\n\n.menu__inner {\n  display: flex;\n  justify-content: space-between;\n  height: 116px;\n  align-items: center;\n}\n\n.icon {\n  display: flex;\n  gap: 40px;\n  height: 17px;\n}\n\n.dots {\n  display: flex;\n  justify-content: center;\n  margin: 0 30px;\n}\n\n.controller {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-top: 17px;\n}\n\n.dot {\n  width: 10px;\n  height: 10px;\n  margin: 0 5px;\n  display: inline-block;\n  cursor: pointer;\n  border-radius: 50%;\n  background-color: rgb(239, 238, 246);\n}\n\n.dot:hover,\n.active-dot {\n  background: #9E98DC;\n}\n\n.slider {\n  width: 1120px;\n  height: 702px;\n  position: relative;\n  overflow: hidden;\n  margin: 0 auto;\n  box-shadow: 0px 6px 59px rgba(53, 49, 84, 0.08);\n  background-color: rgba(53, 49, 84, 0.045);\n}\n\n.slide1,\n.slide2,\n.slide3 {\n  width: 100%;\n  height: 702px;\n  position: absolute;\n  top: 0;\n  left: -1120px;\n  transition: left 0.5s ease-in-out;\n  display: flex;\n}\n\n.slide1.active,\n.slide2.active,\n.slide3.active {\n  left: 0;\n}\n\n*,\n*::before,\n*::after {\n  padding: 0;\n  margin: 0;\n  border: 0;\n  box-sizing: border-box;\n}\n\na {\n  text-decoration: none;\n}\n\nul,\nol,\nli {\n  list-style: none;\n}\n\nimg {\n  vertical-align: none;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-weight: inherit;\n  font-size: inherit;\n}\n\nhtml,\nbody {\n  height: 100%;\n  line-height: 1;\n}","$text-gray: #5C6A79;","*,\n*::before,\n*::after {\n\tpadding: 0;\n\tmargin: 0;\n\tborder: 0;\n\tbox-sizing: border-box;\n}\n\na {\n\ttext-decoration: none;\n}\n\nul,\nol,\nli {\n\tlist-style: none;\n}\n\nimg {\n\tvertical-align: none;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n\tfont-weight: inherit;\n\tfont-size: inherit;\n}\n\nhtml,\nbody {\n\theight: 100%;\n\tline-height: 1;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -137,41 +260,6 @@ module.exports = function (cssWithMappingToString) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
-/*!********************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
-  \********************************************************/
-/***/ ((module) => {
-
-
-
-module.exports = function (url, options) {
-  if (!options) {
-    options = {};
-  }
-  if (!url) {
-    return url;
-  }
-  url = String(url.__esModule ? url.default : url);
-
-  // If url is already wrapped in quotes, remove them
-  if (/^['"].*['"]$/.test(url)) {
-    url = url.slice(1, -1);
-  }
-  if (options.hash) {
-    url += options.hash;
-  }
-
-  // Should url be wrapped?
-  // See https://drafts.csswg.org/css-values-3/#urls
-  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
-    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
-  }
-  return url;
-};
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/runtime/sourceMaps.js":
 /*!************************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/sourceMaps.js ***!
@@ -211,10 +299,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
-var ___HTML_LOADER_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./img/image1.jpg */ "./src/img/image1.jpg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./img/bookshop.svg */ "./src/img/bookshop.svg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./img/user.svg */ "./src/img/user.svg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./img/search.svg */ "./src/img/search.svg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./img/shop_bag.svg */ "./src/img/shop_bag.svg"), __webpack_require__.b);
 // Module
 var ___HTML_LOADER_REPLACEMENT_0___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_0___);
-var code = "<!DOCTYPE html>\r\n<html lang=\"ru\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>BookShop</title>\r\n</head>\r\n<body>   \r\n    <div class=\"header\">\r\n        <div class=\"menu\">\r\n            <div class=\"container\">\r\n                <div class=\"menu__inner\">\r\n                    <div class=\"logo\">\r\n                        <img width=\"100px\" src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\">\r\n                    </div>\r\n                    <ul class=\"nav\">\r\n                        <li><a href=\"/\">books</a></li>\r\n                        <li><a href=\"/audiobooks\">audiobooks</a></li>\r\n                        <li><a href=\"/stationery&gifts\">stationery & gifts</a></li>\r\n                        <li><a href=\"/blog\">blog</a></li>\r\n                    </ul>\r\n                </div> \r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"app\"></div>\r\n</body>\r\n</html>";
+var ___HTML_LOADER_REPLACEMENT_1___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_1___);
+var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_2___);
+var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
+var code = "<!DOCTYPE html>\r\n<html lang=\"ru\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>BookShop</title>\r\n</head>\r\n<body>   \r\n    <div class=\"header\">\r\n        <div class=\"menu\">\r\n            <div class=\"container\">\r\n                <div class=\"menu__inner\">\r\n                    <div class=\"logo\">\r\n                        <img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\">\r\n                    </div>\r\n                    <ul class=\"nav\">\r\n                        <li><a href=\"/\">books</a></li>\r\n                        <li><a href=\"/audiobooks\">audiobooks</a></li>\r\n                        <li><a href=\"/stationery&gifts\">stationery & gifts</a></li>\r\n                        <li><a href=\"/blog\">blog</a></li>\r\n                    </ul>\r\n                    <div class=\"icon\">\r\n                        <img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\">\r\n                        <img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\">\r\n                        <img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\">\r\n                    </div>\r\n                </div> \r\n            </div>\r\n        </div>\r\n    </div>\r\n    \r\n    <div class=\"container\">\r\n        <div class=\"app\"></div>\r\n    </div>\r\n    \r\n</body>\r\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -576,13 +670,43 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/img/image1.jpg":
+/***/ "./src/img/bookshop.svg":
+/*!******************************!*\
+  !*** ./src/img/bookshop.svg ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/e4625b2bab2c1c98d278.svg";
+
+/***/ }),
+
+/***/ "./src/img/search.svg":
 /*!****************************!*\
-  !*** ./src/img/image1.jpg ***!
+  !*** ./src/img/search.svg ***!
   \****************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "assets/b9bb714e26d31d022176.jpg";
+module.exports = __webpack_require__.p + "assets/b334a6402095de5442c0.svg";
+
+/***/ }),
+
+/***/ "./src/img/shop_bag.svg":
+/*!******************************!*\
+  !*** ./src/img/shop_bag.svg ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/bbb70f91c559239b9290.svg";
+
+/***/ }),
+
+/***/ "./src/img/user.svg":
+/*!**************************!*\
+  !*** ./src/img/user.svg ***!
+  \**************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/bbaadccedfd222c8a72f.svg";
 
 /***/ })
 
@@ -705,35 +829,81 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const appElem = document.querySelector('.app');
-
-// Индикатор загрузки
 const loadingIndicator = document.createElement('div');
 loadingIndicator.textContent = 'Загрузка...';
-const loadRoute = path => {
-  appElem.appendChild(loadingIndicator);
-  fetch(`./components/${path}.html`).then(response => response.text()).then(html => {
-    appElem.innerHTML = html;
-    appElem.removeChild(loadingIndicator);
-  }).catch(error => {
-    console.error(`Error loading route: ${path}`, error);
-  });
+const loadRoute = url => {
+  try {
+    const pathUrl = new URL(url);
+    let path = pathUrl.pathname;
+    if (path.startsWith('/')) {
+      path = path.slice(1);
+    }
+    if (path === '' || path === 'index.html') {
+      appElem.appendChild(loadingIndicator);
+
+      // Изменение условия для пути ' ' или 'index.html'
+      if (path === '' || path === 'index.html') {
+        fetch(`./components/books.html`).then(response => response.text()).then(html => {
+          appElem.innerHTML = html;
+          appElem.removeChild(loadingIndicator);
+        }).catch(error => {
+          console.error(`Error loading books route`, error);
+        });
+      }
+      return;
+    }
+    appElem.appendChild(loadingIndicator);
+    fetch(`./components/${path}.html`).then(response => response.text()).then(html => {
+      appElem.innerHTML = html;
+      appElem.removeChild(loadingIndicator);
+    }).catch(error => {
+      console.error(`Error loading route: ${path}`, error);
+    });
+  } catch (error) {
+    console.error('Cannot parse URL:', url);
+  }
 };
 document.addEventListener('click', e => {
   if (e.target.tagName === 'A') {
     e.preventDefault();
     const path = e.target.getAttribute('href');
     window.history.pushState({}, '', path);
-    loadRoute(path);
+    loadRoute(window.location.href);
   }
 });
 const handleLocation = () => {
-  const path = window.location.pathname;
-  loadRoute(path);
+  loadRoute(window.location.href);
 };
-window.onpopstate = handleLocation;
+window.addEventListener('popstate', handleLocation);
 handleLocation();
-window.onpopstate = handleLocation;
-handleLocation();
+let slider = document.querySelector('.slider');
+let slides = slider.querySelectorAll('.slide1, .slide2, .slide3');
+let dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+let slideIndex = 0;
+function showSlide(n) {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove('active');
+  }
+  slides[n].classList.add('active');
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove('active-dot');
+  }
+  dots[n].classList.add('active-dot');
+}
+;
+dots.forEach(function (dot, index) {
+  dot.addEventListener('click', function () {
+    currentSlide = index;
+    showSlide(currentSlide);
+  });
+});
+function nextSliders() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+setInterval(nextSliders, 5000);
+showSlide(currentSlide);
 })();
 
 /******/ })()
