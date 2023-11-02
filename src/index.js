@@ -13,43 +13,45 @@ const loadRoute = (url) => {
     if (path.startsWith('/')) {
       path = path.slice(1);
     }
-  const allLinks = document.querySelectorAll('nav-btn');
-  allLinks.forEach(link => link.classList.remove('nav-active'));
 
-  if (path === '' || path === 'index.html') {
-    appElem.appendChild(loadingIndicator);
+    const allLinks = document.querySelectorAll('.nav-btn');
+    allLinks.forEach(link => link.classList.remove('nav-active'));
 
     if (path === '' || path === 'index.html') {
-      fetch(`./components/books.html`)
-        .then(response => response.text())
-        .then((html) => {
-          appElem.innerHTML = html;
-          appElem.removeChild(loadingIndicator);
-        })
-        .catch((error) => {
-          console.error(`Error loading books route`, error);
-        });
+      appElem.appendChild(loadingIndicator);
+
+      if (path === '' || path === 'index.html') {
+        loadingIndicator.innerHTML = `<div class="nav-slider">
+          <div class="slider">
+              <div class="slide1">
+                  <div class="slide-image">
+                      <img src="img/banner.svg" alt="">
+                  </div>
+              </div>
+              <div class="slide2">
+                  <div class "slide-image">
+                      <img src="img/banner-2.svg" alt="">
+                  </div>
+              </div>
+              <div class="slide3">
+                  <div class="slide-image">
+                      <img src="img/banner-3.svg" alt="">
+                  </div>
+              </div>
+          </div>
+          <div class="controller">              
+              <div class="dots">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+              </div>          
+          </div>
+      </div>`;
+      }
+      return;
     }
-    return;
-  }
 
-  appElem.appendChild(loadingIndicator);
-
-  fetch(`./components/${path}.html`)
-      .then(response => response.text())
-      .then((html) => {
-        appElem.innerHTML = html;
-
-        const currentLink = document.querySelector(`a[href="${path}"]`);
-        if (currentLink) {
-          currentLink.classList.add('nav-active');
-        }
-
-        appElem.removeChild(loadingIndicator);
-      })
-      .catch((error) => {
-        console.error(`Error loading route: ${path}`, error);
-      });
+    appElem.appendChild(loadingIndicator);
   } catch (error) {
     console.error('Cannot parse URL:', url);
   }
@@ -69,6 +71,12 @@ document.addEventListener('click', (e) => {
     loadRoute(window.location.href);
   }
 });
+
+// Определение функции handleLocation
+const handleLocation = () => {
+  loadRoute(window.location.href);
+};
+
 window.addEventListener('popstate', handleLocation);
 handleLocation();
 
@@ -106,3 +114,4 @@ function nextSliders() {
 setInterval(nextSliders, 5000);
 
 showSlide(currentSlide);
+
