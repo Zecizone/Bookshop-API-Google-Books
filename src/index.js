@@ -21,6 +21,7 @@ const loadRoute = (url) => {
 
     if (path === '') {
       appElem.appendChild(loadingIndicator);
+      if (path === '') {
       loadingIndicator.innerHTML = `<div class="nav-slider">
           <div class="slider">
               <div class="slide1">
@@ -52,7 +53,8 @@ const loadRoute = (url) => {
     }
   } catch (error) {
     console.error('Cannot parse URL:', url);
-  };
+  }
+};
 
 document.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
