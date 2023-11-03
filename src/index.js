@@ -1,5 +1,7 @@
 import './index.html';
 import './index.scss';
+import img from './img/banner.svg';
+import lol from './my-index';
 
 const appElem = document.querySelector('.app');
 const loadingIndicator = document.createElement('div');
@@ -17,15 +19,13 @@ const loadRoute = (url) => {
     const allLinks = document.querySelectorAll('.nav-btn');
     allLinks.forEach(link => link.classList.remove('nav-active'));
 
-    if (path === '' || path === 'index.html') {
+    if (path === '') {
       appElem.appendChild(loadingIndicator);
-
-      if (path === '' || path === 'index.html') {
-        loadingIndicator.innerHTML = `<div class="nav-slider">
+      loadingIndicator.innerHTML = `<div class="nav-slider">
           <div class="slider">
               <div class="slide1">
                   <div class="slide-image">
-                      <img src="img/banner.svg" alt="">
+                      <img src="${img}" alt="">
                   </div>
               </div>
               <div class="slide2">
@@ -50,12 +50,9 @@ const loadRoute = (url) => {
       }
       return;
     }
-
-    appElem.appendChild(loadingIndicator);
   } catch (error) {
     console.error('Cannot parse URL:', url);
-  }
-};
+  };
 
 document.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
