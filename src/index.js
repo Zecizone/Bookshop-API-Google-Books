@@ -1,83 +1,8 @@
 import './index.html';
 import './index.scss';
-import img from './img/banner.svg';
-import lol from './my-index';
-
-const appElem = document.querySelector('.app');
-const loadingIndicator = document.createElement('div');
-loadingIndicator.textContent = 'Загрузка...';
-
-const loadRoute = (url) => {
-  try {
-    const pathUrl = new URL(url);
-    let path = pathUrl.pathname;
-
-    if (path.startsWith('/')) {
-      path = path.slice(1);
-    }
-
-    const allLinks = document.querySelectorAll('.nav-btn');
-    allLinks.forEach(link => link.classList.remove('nav-active'));
-
-    if (path === '') {
-      appElem.appendChild(loadingIndicator);
-      if (path === '') {
-      loadingIndicator.innerHTML = `<div class="nav-slider">
-          <div class="slider">
-              <div class="slide1">
-                  <div class="slide-image">
-                      <img src="${img}" alt="">
-                  </div>
-              </div>
-              <div class="slide2">
-                  <div class "slide-image">
-                      <img src="img/banner-2.svg" alt="">
-                  </div>
-              </div>
-              <div class="slide3">
-                  <div class="slide-image">
-                      <img src="img/banner-3.svg" alt="">
-                  </div>
-              </div>
-          </div>
-          <div class="controller">              
-              <div class="dots">
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-              </div>          
-          </div>
-      </div>`;
-      }
-      return;
-    }
-  } catch (error) {
-    console.error('Cannot parse URL:', url);
-  }
-};
-
-document.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A') {
-    e.preventDefault();
-    const path = e.target.getAttribute('href');
-    window.history.pushState({}, '', path);
-
-    const allLinks = document.querySelectorAll('a');
-    allLinks.forEach(link => link.classList.remove('nav-active'));
-
-    e.target.classList.add('nav-active');
-
-    loadRoute(window.location.href);
-  }
-});
-
-// Определение функции handleLocation
-const handleLocation = () => {
-  loadRoute(window.location.href);
-};
-
-window.addEventListener('popstate', handleLocation);
-handleLocation();
+import shop_bag from '.shop_bag.svg';
+import search from '.img/search.svg';
+import user from './img/user.svg';
 
 let slider = document.querySelector('.slider');
 let slides = slider.querySelectorAll('.slide1, .slide2, .slide3');
@@ -111,6 +36,159 @@ function nextSliders() {
 }
 
 setInterval(nextSliders, 5000);
-
 showSlide(currentSlide);
 
+const key = "AIzaSyDzuQMPaY6w-ea3dDCUwTQzwu2ud3sU2Nw";
+let startIndex = 0;
+let subject = "Architecture";
+
+function useRequest(cb1, cb2) {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q="subject:${subject}"&${key}
+        API>&printType=books&startIndex=${startIndex}&maxResults=6&langRestrict=en`)
+        .then(response => response.json())
+        .then(data => {
+            if (cb1) {
+                cb1(data);
+            }
+            else {
+                console.log("cb1 error");
+            }
+            if (cb2) {
+                cb2();
+            }
+            else {
+                console.log("cb2 error");
+            }
+        })
+        .catch(error => console.log(error));
+}
+
+function isUndefined(str) {
+    if (str) {
+        return str;
+    }
+    else {
+        return "&nbsp";
+    }
+}
+
+function displayResult(data) {
+    let cards = '';
+    data.items.forEach(item => {
+        let card = `
+            <div class="book-card">
+                <div>
+                    <img src="${item.volumeInfo.imageLinks.thumbnail}" class = "book-card__img">
+                </div>
+                <div class="book-info">
+                    <p class="book-info__authors"> ${isUndefined(item.volumeInfo.authors)} </p>
+                    <p class="book-info__title"> ${isUndefined(item.volumeInfo.title)} </p>
+                    <p class="book-info__ratingsCount"> ${isUndefined(item.volumeInfo.ratingsCount)} </p>
+                    <p class="book_info__description"> ${isUndefined(item.volumeInfo.description)} </p>
+                    <p class="book-info__retailPrice"> ${isUndefined(item.saleInfo.retailPrice)} </p>
+                    <button class="book-info__button">buy&nbsp;now</button>
+                </div>
+            </div>
+        `;
+        cards += card;
+    });
+    document.querySelector('.books-page').innerHTML += cards;
+}
+
+
+
+function loadMoreFn() {
+    const btn = document.querySelector('.load-button__item');
+    btn.addEventListener('click', () => {
+        startIndex += 6;
+        useRequest(displayResult, buyFn);
+    });
+};
+
+function chooseCategoryFn() {
+    const categories = document.querySelectorAll('.bookshop-list__item');
+
+    categories.forEach(category => {
+        category.addEventListener('click', () => {
+            subject = category.textContent;
+            document.querySelector('.books-page').innerHTML = " ";
+            useRequest(displayResult, buyFn);
+            
+            categories.forEach(cat => {
+                cat.classList.remove('active-bookshop-list__item');
+            });
+
+            category.classList.add('active-bookshop-list__item');
+        });
+    });
+};
+
+function buyFn() {
+    let counter = 0;
+    let bagCounter = document.querySelector('.header__bag-count');
+    window.addEventListener('scroll', ()=>{
+        bagCounter = document.querySelector('.header__bag-count');
+    })
+    const buttons = document.querySelectorAll('.book-info__button');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.textContent === "buy now") {
+                button.textContent = "in the cart";
+                button.classList.add('book-info__button-active');
+                counter++;
+                bagCounter.style.display = "block";
+                bagCounter.textContent = counter;
+            } else {
+                button.textContent = "buy now";
+                button.classList.remove('book-info__button-active');
+                counter--;
+                bagCounter.textContent = counter;
+                if (counter === 0) {
+                    bagCounter.style.display = "none";
+                }
+            }
+        })
+    });
+};
+
+useRequest(displayResult,buyFn);
+loadMoreFn();
+chooseCategoryFn();
+
+const originalHeaderContainer = document.querySelector('.header').innerHTML;
+
+function fixedHeader(){
+    const headerContainer = document.querySelector('.header');
+    let headerNav = document.querySelector('.header__navigation');
+    let header = document.querySelector('header');
+    window.onscroll = function showHeader(){
+        if (window.scrollY > 150){
+            headerNav.style.width = "100px";
+            header.classList.add('header-fixed');
+            headerContainer.innerHTML = `
+            <ul class="header__navigation navigation-fixed">
+                <li class="header__navigation-link">gifts</li>
+                <li class="header__navigation-link">blog</li>
+            </ul>
+            <div class="header__icons">
+                <div class="header__user-icon">
+                <img src="${user}" alt="">
+            </div>
+            <div class="header__search-icon">
+                <img src="${search}" alt="">
+            </div>
+            <div class="header__bag-icon">
+                <img src="${shop_bag}" alt="">
+                <div class="header__bag-count">
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+        else{
+            header.classList.remove('header-fixed');
+            headerContainer.innerHTML = originalHeaderContainer;
+        }
+    }
+}
+fixedHeader();

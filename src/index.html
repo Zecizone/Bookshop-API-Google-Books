@@ -6,31 +6,110 @@
     <title>BookShop</title>
 </head>
 <body>   
+    <div class="container">
+        <header>
     <div class="header">
-        <div class="menu">
-            <div class="container">
-                <div class="menu__inner">
-                    <div class="logo">
-                        <img src="img/bookshop.svg" alt="">
-                    </div>
-                    <ul class="nav">
-                        <li><a href="/" class="nav-btn nav-active">books</a></li>
-                        <li><a href="/audiobooks" class="nav-btn">audiobooks</a></li>
-                        <li><a href="/stationery&gifts" class="nav-btn">stationery & gifts</a></li>
-                        <li><a href="/blog" class="nav-btn">blog</a></li>
-                    </ul>
-                    <div class="icon">
-                        <img src="img/user.svg" alt="">
-                        <img src="img/search.svg" alt="">
-                        <img src="img/shop_bag.svg" alt="">
-                    </div>
-                </div> 
+        <p class="header__logo"><img src="img/Bookshop.svg" alt=""></p>
+        <ul class="header__navigation">
+            <li class="header__navigation-link">books</li>
+            <li class="header__navigation-link">audiobooks</li>
+            <li class="header__navigation-link">Stationery & gifts</li>
+            <li class="header__navigation-link">blog</li>
+        </ul>
+        <div class="header__icons">
+            <div class="header__user-icon">
+                <img src="img/user.svg" alt="">
+            </div>
+            <div class="header__search-icon">
+                <img src="img/search.svg" alt="">
+            </div>
+            <div class="header__bag-icon">
+                <img src="img/shop_bag.svg" alt="">
+                <div class="header__bag-count">
+                </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="app"></div>
+</header>
+        <div class="app">
+            <div class="nav-slider">
+                <div class="slider">
+                    <div class="slide1 active">
+                        <div class="slide-image">
+                            <img src="img/banner.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="slide2">
+                        <div class = "slide-image">
+                            <img src="img/banner-2.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="slide3">
+                        <div class="slide-image">
+                            <img src="img/banner-3.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="controller">              
+                    <div class="dots">
+                        <span class="dot active-dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>          
+                </div>  
+            </div>
+            <div class="slider-promo">
+                <div class="slider-promo__item1">
+                    <p class="slider-promo__subtitle">
+                        Change <br>
+                        old book <br>
+                        on new <br>
+                        <img src="img/arrow.png" alt="arrow-left">
+                    </p>
+                </div>
+                <div class="slider-promo__item2">
+                    <p class="slider-promo__subtitle2">
+                        top <br>
+                        100 <br>
+                        books <br>
+                        2022 <br>
+                        <img src="img/arrow.png" alt="arrow-left">
+                    </p>
+                </div>
+            </div>
     </div>
+    <section class="bookshop">
+        <div class="bookshop-page">
+            <div class="bookshop-catalog">
+                <ul class="bookshop-list"></div>
+            <div class="bookshop-cat">
+                <ul class="bookshop-list">
+                    <li class="bookshop-list__item active-bookshop-list__item">Architecture</li>
+                    <li class="bookshop-list__item">Art&nbsp;&&nbsp;Fashion</li>
+                    <li class="bookshop-list__item">Biography</li>
+                    <li class="bookshop-list__item">Business</li>
+                    <li class="bookshop-list__item">Crafts&nbsp;&&nbsp;Hobbies</li>
+                    <li class="bookshop-list__item">Drama</li>
+                    <li class="bookshop-list__item">Fiction</li>
+                    <li class="bookshop-list__item">Food&nbsp;&&nbsp;Drink</li>
+                    <li class="bookshop-list__item">Health&nbsp;&&nbsp;Wellbeing</li>
+                    <li class="bookshop-list__item">History&nbsp;&&nbsp;Politics</li>
+                    <li class="bookshop-list__item">Humor</li>
+                    <li class="bookshop-list__item">Poetry</li>
+                    <li class="bookshop-list__item">Psychology</li>
+                    <li class="bookshop-list__item">Science</li>
+                    <li class="bookshop-list__item">Technology</li>
+                    <li class="bookshop-list__item">Travel&nbsp;&&nbsp;Maps</li>
+                </ul>
+            </div>
+            <div class="books">
+                <div class="books-page"></div>
+                <div class="load-button">
+                    <button class="load-button__item">Load more</button>
+                </div>
+            </div>
+        </div>
+    </section>
     
 </body>
 </html>
