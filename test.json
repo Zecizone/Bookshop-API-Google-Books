@@ -1,0 +1,101 @@
+{
+    "kind": "books#volumes",
+    "totalItems": 523,
+    "items": [
+      {
+        "kind": "books#volume",
+        "id": "FVoUEAAAQBAJ",
+        "etag": "C6sDP9oZRPY",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/FVoUEAAAQBAJ",
+        "volumeInfo": {
+          "title": "Английский язык. Complex Object + Complex Subject",
+          "authors": [
+            "Виктория Державина"
+          ],
+          "publisher": "Litres",
+          "publishedDate": "2020-08-02",
+          "description": "В пособии разбираются конструкции Complex Object и Complex Subject, их образование и употребление.Приводятся самые употребительные глаголы, после которых используются эти конструкции.Множество разнообразных упражнений, большинство из которых основаны на современной английской и американской литературе, советы и рекомендации автора помогут овладеть конструкциями, узнавать их в тексте и активно использовать.Пособие предназначено для всех изучающих английский язык.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9785042644825"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "5042644822"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 66,
+          "printType": "BOOK",
+          "categories": [
+            "Foreign Language Study"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "1.5.6.0.preview.1",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=FVoUEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=FVoUEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "ru",
+          "previewLink": "http://books.google.ru/books?id=FVoUEAAAQBAJ&pg=PA23&dq=%22subject&hl=&cd=1&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=FVoUEAAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://play.google.com/store/books/details?id=FVoUEAAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "RU",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 148.75,
+            "currencyCode": "RUB"
+          },
+          "retailPrice": {
+            "amount": 133.88,
+            "currencyCode": "RUB"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=FVoUEAAAQBAJ&rdid=book-FVoUEAAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 148750000,
+                "currencyCode": "RUB"
+              },
+              "retailPrice": {
+                "amountInMicros": 133880000,
+                "currencyCode": "RUB"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "RU",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.ru/books/download/%D0%90%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA_Complex_Ob-sample-pdf.acsm?id=FVoUEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=FVoUEAAAQBAJ&hl=&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "Виктория Державина. Сложное подлежащее Complex \u003cb\u003eSubject\u003c/b\u003e Конструкция Complex \u003cb\u003eSubject\u003c/b\u003e соответствует русским неопре- делённо - личным , безличным предложениям , предложениям , начинающимся с вводных слов , например : « Полагают , что&nbsp;..."
+        }
+      }
+    ]}
