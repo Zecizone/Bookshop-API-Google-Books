@@ -1,8 +1,9 @@
 import './index.html';
 import './index.scss';
-import shop_bag from '.shop_bag.svg';
-import search from '.img/search.svg';
+import shop_bag from './img/shop_bag.svg';
+import search from './img/search.svg';
 import user from './img/user.svg';
+import placeholder from './img/book-placeholder.jpg';
 
 let slider = document.querySelector('.slider');
 let slides = slider.querySelectorAll('.slide1, .slide2, .slide3');
@@ -43,7 +44,7 @@ let startIndex = 0;
 let subject = "Architecture";
 
 function useRequest(cb1, cb2) {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q="subject:${subject}"&${key}
+    fetch(`https://www.googleapis.com/books/v1/volumes?q="subject:${subject}"&${key}"
         API>&printType=books&startIndex=${startIndex}&maxResults=6&langRestrict=en`)
         .then(response => response.json())
         .then(data => {
@@ -68,34 +69,43 @@ function isUndefined(str) {
         return str;
     }
     else {
-        return "&nbsp";
+        return "&nbsp;";
     }
 }
 
 function displayResult(data) {
     let cards = '';
     data.items.forEach(item => {
+        const thumbnail = item.volumeInfo.imageLinks?.thumbnail || placeholder;
         let card = `
             <div class="book-card">
                 <div>
-                    <img src="${item.volumeInfo.imageLinks.thumbnail}" class = "book-card__img">
+                    <img class="book-card__img" src="${thumbnail}" loading="lazy">
                 </div>
                 <div class="book-info">
                     <p class="book-info__authors"> ${isUndefined(item.volumeInfo.authors)} </p>
                     <p class="book-info__title"> ${isUndefined(item.volumeInfo.title)} </p>
                     <p class="book-info__ratingsCount"> ${isUndefined(item.volumeInfo.ratingsCount)} </p>
                     <p class="book_info__description"> ${isUndefined(item.volumeInfo.description)} </p>
-                    <p class="book-info__retailPrice"> ${isUndefined(item.saleInfo.retailPrice)} </p>
-                    <button class="book-info__button">buy&nbsp;now</button>
+                    <p class="book-info__retailPrice">${item.saleInfo?.retailPrice ? 
+                        `${item.saleInfo.retailPrice.amount} ${item.saleInfo.retailPrice.currencyCode}` : 
+                        '&nbsp;'}</p>
+                    <button class="book-info__button">buy now</button>
                 </div>
             </div>
         `;
         cards += card;
+        let bookData = {
+            title: isUndefined(item.volumeInfo.title),
+            author: isUndefined(item.volumeInfo.authors),
+            price: isUndefined(item.saleInfo.listPrice)
+        };
+        let cart = JSON.parse(localStorage.getItem("cart")) || { books: [] };
+        cart.books.push(bookData);
+        localStorage.setItem("cart", JSON.stringify(cart));
     });
     document.querySelector('.books-page').innerHTML += cards;
 }
-
-
 
 function loadMoreFn() {
     const btn = document.querySelector('.load-button__item');
@@ -162,7 +172,7 @@ function fixedHeader(){
     let headerNav = document.querySelector('.header__navigation');
     let header = document.querySelector('header');
     window.onscroll = function showHeader(){
-        if (window.scrollY > 150){
+        if (window.scrollY > 500){
             headerNav.style.width = "100px";
             header.classList.add('header-fixed');
             headerContainer.innerHTML = `
@@ -185,10 +195,11 @@ function fixedHeader(){
             </div>
             `;
         }
-        else{
+        else {
             header.classList.remove('header-fixed');
             headerContainer.innerHTML = originalHeaderContainer;
         }
     }
 }
+
 fixedHeader();
